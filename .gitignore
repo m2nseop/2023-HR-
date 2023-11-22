@@ -1,0 +1,50 @@
+# 환경 및 빌드 파일
+/node_modules/
+/dist/
+
+# 로컬 설정 파일 (예: .env*)
+/.env.local
+/.env.*.local
+
+# 프로덕션 빌드의 환경 설정 파일
+/.env.production
+/.env.production.local
+
+# npm debug log 파일
+npm-debug.log*
+
+# 생성된 HTML 파일
+/dist/*.html
+
+# 빌드된 JS와 CSS 파일
+/dist/static/
+
+# 업로드된 이미지 및 기타 미디어 파일
+/dist/assets/
+
+# 환경 및 빌드 파일
+/target/
+
+# IntelliJ 프로젝트 디렉토리
+/.idea/
+
+# Eclipse 프로젝트 디렉토리
+/.classpath
+/.project
+/.settings/
+
+# 스프링 부트 설정 파일
+/application.properties
+
+# 로깅 파일
+/logs/
+
+# 개발 도구에서 생성되는 파일
+/.mvn/
+*.iml
+*.ipr
+*.iws
+
+# macOS에 대한 설정 파일
+.DS_Store
+

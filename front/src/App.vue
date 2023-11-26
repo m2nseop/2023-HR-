@@ -23,7 +23,7 @@
               <!-- <b-nav-item href="/#/join" style="float: right;">Join</b-nav-item> -->
             </div>
             <div v-show="user_code == 'zxc'">
-              <b-nav-item href="/#/Manager-Progress" style="float: right;">진행상황</b-nav-item>
+              <b-nav-item href="/#/job-post-list" style="float: right;">후보자 매칭</b-nav-item>
             </div>
 
           </b-navbar-nav>

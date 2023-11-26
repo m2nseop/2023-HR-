@@ -26,7 +26,7 @@
             ></b-form-input>
           </b-form-group>
   
-          <b-button type="button" style="width: 100%; margin: 10px 0 7px 0;" variant="primary"  @click="Manager"> 로그인 </b-button>
+          <b-button type="button" style="width: 100%; margin: 10px 0 7px 0;" variant="primary"  @click="Manager"> Login </b-button>
         </b-card>
       </b-form>
     </div>

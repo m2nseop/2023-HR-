@@ -15,15 +15,17 @@ public class CompJobDTO {
     String B;
     String C;
     String D;
+    int comp_id;
 
     public CompJobDTO() {
     }
 
-    public CompJobDTO(String A, String B, String C, String D) {
+    public CompJobDTO(String A, String B, String C, String D, int comp_id) {
         super();
         this.A = A;
         this.B = B;
         this.C = C;
         this.D = D;
+        this.comp_id = comp_id;
     }
 }

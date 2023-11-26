@@ -17,7 +17,8 @@ import ModifyPost from '../views/ModifyPost.vue'
 import CompanyDetail from '../views/CompanyDetail.vue'
 import Manager from '../views/Manager.vue'
 import ManagerProgress from '../views/ManagerProgress.vue'
-import Candidate from '../views/Candidate.vue'
+import CandidateMatching from '../views/CandidateMatching.vue'
+import ExcelJobPost from '../views/ExcelJobPost.vue'
 
 Vue.use(VueRouter)
 
@@ -122,10 +123,20 @@ const routes = [
     component: Manager
   },
   {
-    path: '/Candidate',
-    name: 'Candidate',
-    component: Candidate
-  }
+    path: '/Candidate-Matching',
+    name: 'CandidateMatching',
+    component: CandidateMatching
+  },
+  {
+    path: '/get-candidate/:comp_id',
+    name: 'CandidateMatching',
+    component: CandidateMatching
+  },
+  {
+    path: '/job-post-list',
+    name: 'ExcelJobPost',
+    component: ExcelJobPost
+  },
 ]
 
 const router = new VueRouter({

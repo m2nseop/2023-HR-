@@ -38,9 +38,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
   export default {
+    name: 'CandidateMatching',
     components: {
-    BModal,
-  },
+      BModal,
+    },
 
     data() {
       return {
@@ -80,7 +81,17 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
     },
     methods: {
       fetchIndvInfoList() {
-        http.get("/get-candidate")
+        // http.get("/get-candidate",{ query: { comp_id: this.comp_id} })
+        //   .then(response => {
+        //     this.indvInfoList = response.data;
+        //   })
+        //   .catch(error => {
+        //     console.error('Error fetching data:', error);
+        //   });
+        console.log("hi");
+        console.log("comp_id: " + this.$route.params.comp_id);
+        // const comp_id = this.$route.params.comp_id; // 경로 매개변수 사용
+        http.get("/get-candidate",{ params: { comp_id: this.$route.params.comp_id} })
           .then(response => {
             this.indvInfoList = response.data;
           })

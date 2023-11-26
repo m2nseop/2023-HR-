@@ -2,7 +2,6 @@
   <div class="home">
     <HelloWorld style="display: none;" msg="Welcome to Your Vue.js App" />
     <div class="body">
-      asdf
     </div>
   </div>
 </template>

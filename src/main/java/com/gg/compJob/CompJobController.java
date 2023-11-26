@@ -2,6 +2,7 @@ package com.gg.compJob;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gg.indvInfo.IndvInfoDTO;
@@ -29,9 +30,20 @@ public class CompJobController {
     @Autowired
     private IndvInfoService indvInfoService;
 
+    @GetMapping("/get-comp-job-list")
+    public List<CompJobDTO> getCompJobList() {
+        System.out.println("***CompJob Controller..***");
+        System.out.println();
+        List<CompJobDTO> compJobList = compJobService.getCompJobList();
+        // System.out.println("compJobList: " + compJobList);
+        System.out.println("comp job list");
+        return compJobList;
+    }
+
     @GetMapping("/get-candidate")
-    public List<IndvInfoDTO> getCompJob() {
-        CompJobDTO dto = compJobService.getCompJob(200);
+    public List<IndvInfoDTO> getCandidateList(String comp_id) {
+        System.out.println("comp_id: " + comp_id);
+        CompJobDTO dto = compJobService.getCompJob(Integer.parseInt(comp_id));
 
         System.out.println("***CompJob Controller..***");
         System.out.println();
@@ -116,5 +128,9 @@ public class CompJobController {
         // System.out.println("indvInfoList: " + indvInfoList);
         return indvInfoList;
     }
+
+    // @GetMapping("/get-candidate-detail"){
+
+    // }
 
 }

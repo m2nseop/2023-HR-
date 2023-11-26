@@ -18,7 +18,7 @@
 	<!-- 관리자 로그인(계정정보 조회) -->
 	<select id="Manager" resultType="user">
 		SELECT M_ID as ID, M_PW as PW, 2 as user_code
-		FROM Manager
+		FROM MANAGER
 	</select>
 
 	<!-- 고객사 게시판 조회 -->
@@ -139,12 +139,12 @@
 		WHERE #{comp_id}=COMP_TEST.comp_id; 
 	</select>
 
-	<select id="searchWithKeywords" parameterType="list" resultType="indvfile">
-    SELECT * FROM INDV_TEST
-    WHERE MATCH(H) AGAINST
-    <foreach collection="list" item="keyword" separator=" " open="(" close=")" index="i">
-        #{keyword}
-    </foreach>
-    IN BOOLEAN MODE;
-</select>
+	<select id="searchWithKeywords" parameterType="String" resultType="indvinfo">
+		<!-- SELECT * FROM INDV_TEST
+		WHERE MATCH(I) AGAINST (#{keywords} IN BOOLEAN MODE); -->
+		SELECT *, MATCH(Q) AGAINST(#{keywords} IN BOOLEAN MODE) AS score 
+		FROM INDV_TEST
+		WHERE MATCH(Q) AGAINST(#{keywords} IN BOOLEAN MODE) ORDER BY score DESC;
+
+	</select>
 </mapper>

@@ -4,29 +4,18 @@
       <b-card class="shadow">
         <h2 align="center" style="font-weight: 500; margin-bottom: 20px">User Login</h2>
         <!-- ID -->
-        <b-form-group label-cols-lg="3" label="ID" label-for="input-id" style="text-align: center;">
-          <b-form-input
-            id="input-id"
-            type="text"
-            v-model="form.id"
-            placeholder="Enter ID"
-            required
-          ></b-form-input>
+        <b-form-group label-cols="3" label="ID" label-for="input-id" style="text-align: center;">
+          <b-form-input id="input-id" type="text" v-model="form.id" placeholder="Enter ID" required></b-form-input>
         </b-form-group>
 
         <!-- 비밀번호 -->
-        <b-form-group label-cols-lg="3" label="Password" label-for="input-pw" style="text-align: center;">
-          <b-form-input
-            id="input-pw"
-            type="password"
-            v-model="form.pw"
-            placeholder="Enter Password"
-            required
-            @keyup.enter="loginIndv"
-          ></b-form-input>
+        <b-form-group label-cols="3" label="Password" label-for="input-pw" style="text-align: center;">
+          <b-form-input id="input-pw" type="password" v-model="form.pw" placeholder="Enter Password" required
+            @keyup.enter="loginIndv"></b-form-input>
         </b-form-group>
 
-        <b-button type="button" style="width:100%; margin: 10px 0 7px 0;" variant="primary" @click="loginIndv"> 로그인 </b-button>
+        <b-button type="button" style="width:100%; margin: 10px 0 7px 0;" variant="primary" @click="loginIndv"> Login
+        </b-button>
       </b-card>
     </b-form>
   </div>
@@ -58,7 +47,7 @@ export default {
           if (response.data) {
             console.log(response.data);
             alert("로그인 성공!");
-            this.$router.push({name : 'Home'});
+            this.$router.push({ name: 'Home' });
             // this.$router.go(0);
           } else {
             console.log(response.data);

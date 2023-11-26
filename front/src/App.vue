@@ -12,117 +12,116 @@
             <div v-if="this.isLogin">
               <b-nav-item-dropdown right>
                 <template #button-content>
-                  ID : {{loginUser}}
+                  ID : {{ loginUser }}
                 </template>
                 <b-dropdown-item @click="goMyPage()">My Page</b-dropdown-item>
                 <b-dropdown-item @click="logout()">Log Out</b-dropdown-item>
               </b-nav-item-dropdown>
             </div>
             <div v-else>
-              <b-nav-item href="/#/login" style="float: left;">Login</b-nav-item>
-              <b-nav-item href="/#/join" style="float: right;">Join</b-nav-item>
+              <b-nav-item href="/#/login">Login</b-nav-item>
+              <!-- <b-nav-item href="/#/join" style="float: right;">Join</b-nav-item> -->
             </div>
             <div v-show="user_code == 'zxc'">
               <b-nav-item href="/#/Manager-Progress" style="float: right;">진행상황</b-nav-item>
             </div>
-        
+
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
     </div>
     <div>
-      <router-view/><!--nav 바 밑에 router view 부분이 바뀜 -->
+      <router-view /><!--nav 바 밑에 router view 부분이 바뀜 -->
     </div>
   </div>
-
 </template>
 
 <script>
 import http from "./http-common";
 
-export default{
+export default {
   name: "App",
-  data(){
-    return{
+  data() {
+    return {
       isLogin: false,
-      loginUser:'',
-      user_code:'asd'
+      loginUser: '',
+      user_code: 'asd'
     }
   },
-  
-  methods:{
-    checkSession(){
+
+  methods: {
+    checkSession() {
       http
         .post("/check-session")
-        .then(response=>{
-          if(response.data != null && response.data != ''){
+        .then(response => {
+          if (response.data != null && response.data != '') {
             console.log(response.data);
             this.isLogin = true;
             this.loginUser = response.data;
           }
-          else{
+          else {
             this.isLogin = false;
           }
         })
-        .catch(e=>{
+        .catch(e => {
           console.log(e);
         })
     },
-    checkUserCode(){
+    checkUserCode() {
       http
         .post("/check-usercode")
-        .then(response=>{
+        .then(response => {
           console.log(response.data);
-          if(response.data==2){
+          if (response.data == 2) {
             this.user_code = 'zxc';
           }
-          else if (response.data==1){
+          else if (response.data == 1) {
             this.user_code = 'asd';
           }
-          else if (response.data==0){
+          else if (response.data == 0) {
             this.user_code = 'qwe';
           }
         })
-        .catch(e=>{
+        .catch(e => {
           console.log(e);
         })
     },
-    goMyPage(){
+    goMyPage() {
       http
         .post("/check-usercode")
-        .then(response=>{
+        .then(response => {
           console.log(response.data);
-          if(response.data){
+          if (response.data) {
             this.$router.push({ name: "MyPageComp" });
           }
-          else{
+          else {
             this.$router.push({ name: "MyPageIndv" });
           }
         })
-        .catch(e=>{
+        .catch(e => {
           console.log(e);
         })
     },
-    logout(){
+    logout() {
       http
         .post("/logout")
-        .then(response=>{
+        .then(response => {
           alert("로그아웃 되었습니다.");
           console.log(response.data);
           this.$router.push({ name: "Home" });
           this.$router.go(0);
         })
-        .catch(e=>{
+        .catch(e => {
           console.log(e);
           alert("로그아웃 실패..");
           this.$router.go(0);
         })
     }
   },
-  mounted(){
+  mounted() {
     this.checkSession();
   },
-  updated(){
+  updated() {
     this.checkSession();
     this.checkUserCode();
   }
@@ -131,7 +130,6 @@ export default{
 
 
 <style>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -145,6 +143,7 @@ h2 {
   margin-bottom: 20px !important;
   color: #0e73c3;
 }
+
 /*
 #nav {
   padding: 30px;

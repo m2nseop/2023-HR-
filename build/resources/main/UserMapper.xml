@@ -139,12 +139,16 @@
 		WHERE #{comp_id}=COMP_TEST.comp_id; 
 	</select>
 
+	<select id="getCompJobList" resultType="compjob">
+		SELECT B, comp_id
+		FROM COMP_TEST
+	</select>
+
 	<select id="searchWithKeywords" parameterType="String" resultType="indvinfo">
 		<!-- SELECT * FROM INDV_TEST
 		WHERE MATCH(I) AGAINST (#{keywords} IN BOOLEAN MODE); -->
-		SELECT *, MATCH(Q) AGAINST(#{keywords} IN BOOLEAN MODE) AS score 
+		SELECT *, MATCH(I) AGAINST(#{keywords} IN BOOLEAN MODE) AS score 
 		FROM INDV_TEST
-		WHERE MATCH(Q) AGAINST(#{keywords} IN BOOLEAN MODE) ORDER BY score DESC;
-
+		WHERE MATCH(I) AGAINST(#{keywords} IN BOOLEAN MODE) ORDER BY score DESC;
 	</select>
 </mapper>

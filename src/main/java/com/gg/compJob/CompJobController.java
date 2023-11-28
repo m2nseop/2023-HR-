@@ -101,7 +101,8 @@ public class CompJobController {
         List<String> distincetNouns = nounsList.stream().distinct().collect(java.util.stream.Collectors.toList());
         StringBuilder nouns = new StringBuilder();
         for (String str : distincetNouns) {
-            nouns.append(str).append("* ");
+            // nouns.append(str).append("* ");
+            nouns.append(str).append(" ");
         }
 
         // String jsonList = joinList(nouns);
